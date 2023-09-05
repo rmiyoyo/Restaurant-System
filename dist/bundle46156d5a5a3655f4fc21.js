@@ -2,6 +2,37 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/module/popup.js":
+/*!*****************************!*\
+  !*** ./src/module/popup.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _assets_close_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/close.svg */ "./src/assets/close.svg");
+/* harmony import */ var _assets_demoSpaceship_webp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/demoSpaceship.webp */ "./src/assets/demoSpaceship.webp");
+
+
+var popupContent = "\n<section id=\"popup\">\n<img  id=\"close\" src=\"".concat(_assets_close_svg__WEBPACK_IMPORTED_MODULE_0__, "\" alt=\"close\">\n<img class=\"popup-img\" src=\"").concat(_assets_demoSpaceship_webp__WEBPACK_IMPORTED_MODULE_1__, "\" alt=\"spaceship\">\n<h2 class=\"ship-name\">Space 3</h2>\n<article class=\"ship-properties\">\n    <div>\n        <p>Fuel: Titanuim</p>\n        <p>Weight: 400</p>\n    </div>\n    <div>\n        <p>Length: 100,000</p>\n        <p>Power: 100,000,000</p>\n    </div>\n</article>\n<h3>Comments (2)</h3>\n<article class=\"comments\">\n    <p>3/11/2021 Alex: I'd love to buy it!</p>\n    <p>03/12/2021 Mia: I love</p>\n</article>\n<h3>Add a comment</h3>\n<form action=\"#\">\n    <input type=\"text\" required maxlength=\"50\" placeholder=\"Your name\">\n    <textarea type=\"text\" required maxlength=\"1024\" placeholder=\"Your insights\"></textarea>\n    <button id=\"submit-comment\" type=\"submit\">Comment</button>\n</form>\n</section>\n");
+var popupConatiner = document.getElementById('popup-container');
+var popup = function popup(e) {
+  var target = e.target;
+  if (target.id === 'close') {
+    while (popupConatiner.firstChild) {
+      popupConatiner.firstChild.remove();
+    }
+    ;
+  } else if (target.id === 'popup-demo') {
+    popupConatiner.innerHTML = popupContent;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (popup);
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/style.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/style.css ***!
@@ -29,7 +60,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `html {
 body {
   font-family: "Poppins", sans-serif;
   font-style: normal;
-  font-style: normal;
   background-color: #f4f4f4;
   box-sizing: border-box;
 }
@@ -42,7 +72,6 @@ body {
 
 #logo {
   height: 40px;
-  mask-image: #fff;
 }
 
 menu {
@@ -89,10 +118,85 @@ footer {
   bottom: 0;
 }
 
-menu *.active {
+menu *.active::after {
+  content: "";
   border-bottom: 1px solid #333;
+  display: block;
+  width: 30px;
+  margin: 0 auto;
+  margin-top: 4px;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kCAAkC;EAClC,kBAAkB;EAClB,kBAAkB;EAClB,yBAAyB;EACzB,sBAAsB;AACxB;;AAEA;EACE,SAAS;EACT,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,YAAY;EACZ,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,qBAAqB;AACvB;;AAEA;EACE,qBAAqB;EACrB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;;;EAGE,cAAc;EACd,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,wCAAwC;EACxC,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,mBAAmB;EACnB,WAAW;EACX,sBAAsB;EACtB,aAAa;EACb,eAAe;EACf,OAAO;EACP,SAAS;AACX;;AAEA;EACE,6BAA6B;AAC/B","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap\");\n\nhtml {\n  font-size: 16px;\n}\n\nbody {\n  font-family: \"Poppins\", sans-serif;\n  font-style: normal;\n  font-style: normal;\n  background-color: #f4f4f4;\n  box-sizing: border-box;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n  color: #3d3d3d;\n}\n\n#logo {\n  height: 40px;\n  mask-image: #fff;\n}\n\nmenu {\n  display: flex;\n  gap: 16px;\n}\n\nmenu *:hover {\n  transform: scale(1.1);\n}\n\na {\n  text-decoration: none;\n  color: inherit;\n}\n\nnav {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\nmain,\nheader,\nfooter {\n  margin: 0 auto;\n  width: 100%;\n}\n\nheader {\n  padding: 12px 24px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 32px;\n}\n\nfooter {\n  font-size: 1.1rem;\n  font-weight: bolder;\n  color: #fff;\n  background-color: #789;\n  padding: 10px;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n}\n\nmenu *.active {\n  border-bottom: 1px solid #333;\n}\n"],"sourceRoot":""}]);
+
+main {
+  position: relative;
+}
+#popup {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 24px;
+  border: 1px solid #333;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 800px;
+  min-width: 375px;
+  z-index: 99;
+}
+
+
+.popup-img {
+  height: 300px;
+  padding: 0 24px;
+}
+
+#close {
+  position: absolute;
+  right: 12px;
+  top: 12px
+}
+
+.ship-properties {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 375px;
+}
+
+.displayNone {
+  display: none;
+}
+
+.comments {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+input, textarea {
+  padding: 8px;
+  width: 350px;
+  min-height: 40px;
+}
+
+
+#submit-comment {
+  align-self:last baseline;
+  background: transparent;
+  padding: 4px;
+  border: 1px solid #333333bb;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kCAAkC;EAClC,kBAAkB;EAClB,yBAAyB;EACzB,sBAAsB;AACxB;;AAEA;EACE,SAAS;EACT,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,qBAAqB;AACvB;;AAEA;EACE,qBAAqB;EACrB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;;;EAGE,cAAc;EACd,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,wCAAwC;EACxC,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,mBAAmB;EACnB,WAAW;EACX,sBAAsB;EACtB,aAAa;EACb,eAAe;EACf,OAAO;EACP,SAAS;AACX;;AAEA;EACE,WAAW;EACX,6BAA6B;EAC7B,cAAc;EACd,WAAW;EACX,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,SAAS;EACT,SAAS;EACT,2BAA2B;EAC3B,aAAa;EACb,sBAAsB;EACtB,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,UAAU;EACV,gBAAgB;EAChB,gBAAgB;EAChB,WAAW;AACb;;;AAGA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX;AACF;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;AACX;;AAEA;EACE,YAAY;EACZ,YAAY;EACZ,gBAAgB;AAClB;;;AAGA;EACE,wBAAwB;EACxB,uBAAuB;EACvB,YAAY;EACZ,2BAA2B;AAC7B","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap\");\n\nhtml {\n  font-size: 16px;\n}\n\nbody {\n  font-family: \"Poppins\", sans-serif;\n  font-style: normal;\n  background-color: #f4f4f4;\n  box-sizing: border-box;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n  color: #3d3d3d;\n}\n\n#logo {\n  height: 40px;\n}\n\nmenu {\n  display: flex;\n  gap: 16px;\n}\n\nmenu *:hover {\n  transform: scale(1.1);\n}\n\na {\n  text-decoration: none;\n  color: inherit;\n}\n\nnav {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\nmain,\nheader,\nfooter {\n  margin: 0 auto;\n  width: 100%;\n}\n\nheader {\n  padding: 12px 24px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 32px;\n}\n\nfooter {\n  font-size: 1.1rem;\n  font-weight: bolder;\n  color: #fff;\n  background-color: #789;\n  padding: 10px;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n}\n\nmenu *.active::after {\n  content: \"\";\n  border-bottom: 1px solid #333;\n  display: block;\n  width: 30px;\n  margin: 0 auto;\n  margin-top: 4px;\n}\n\nmain {\n  position: relative;\n}\n#popup {\n  position: absolute;\n  top: 24px;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 24px;\n  border: 1px solid #333;\n  background: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  width: 90%;\n  max-width: 800px;\n  min-width: 375px;\n  z-index: 99;\n}\n\n\n.popup-img {\n  height: 300px;\n  padding: 0 24px;\n}\n\n#close {\n  position: absolute;\n  right: 12px;\n  top: 12px\n}\n\n.ship-properties {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  max-width: 375px;\n}\n\n.displayNone {\n  display: none;\n}\n\n.comments {\n  width: 100%;\n}\n\nform {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n}\n\ninput, textarea {\n  padding: 8px;\n  width: 350px;\n  min-height: 40px;\n}\n\n\n#submit-comment {\n  align-self:last baseline;\n  background: transparent;\n  padding: 4px;\n  border: 1px solid #333333bb;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -539,13 +643,23 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/assets/logo.png":
-/*!*****************************!*\
-  !*** ./src/assets/logo.png ***!
-  \*****************************/
+/***/ "./src/assets/close.svg":
+/*!******************************!*\
+  !*** ./src/assets/close.svg ***!
+  \******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "7a28b9116cbf19ba88ab.png";
+module.exports = __webpack_require__.p + "1ded1e99216871d2a3ae.svg";
+
+/***/ }),
+
+/***/ "./src/assets/demoSpaceship.webp":
+/*!***************************************!*\
+  !*** ./src/assets/demoSpaceship.webp ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "0189320565bb110cd84f.webp";
 
 /***/ })
 
@@ -665,11 +779,16 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ "./src/styles/style.css");
-/* harmony import */ var _assets_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/logo.png */ "./src/assets/logo.png");
+/* harmony import */ var _assets_close_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/close.svg */ "./src/assets/close.svg");
+/* harmony import */ var _module_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/popup */ "./src/module/popup.js");
 
 
+
+document.addEventListener('click', function (e) {
+  (0,_module_popup__WEBPACK_IMPORTED_MODULE_2__["default"])(e);
+});
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle8bd113dac6ef1cedd809.js.map
+//# sourceMappingURL=bundle46156d5a5a3655f4fc21.js.map
