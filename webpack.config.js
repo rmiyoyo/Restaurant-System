@@ -1,39 +1,67 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlwebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
-
-  devServer: {
-    static: './dist',
+  entry: {
+    bundle: path.resolve(__dirname, 'src/index.js'),
   },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-      template: './src/index.html',
-    }),
-  ],
-
   output: {
-    filename: '[name].js',
+    filename: '[name][contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
+  plugins: [
+    new HtmlwebpackPlugin({
+      title: 'Capstone',
+      template: 'src/index.html',
+    }),
+  ],
+  devtool: 'source-map',
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
     },
-    runtimeChunk: 'single',
+    port: 3000,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true,
   },
-
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          sources: {
+            list: [
+              {
+                tag: 'img',
+                attribute: 'src',
+                type: 'src',
+              },
+            ],
+          },
+        },
       },
     ],
   },
