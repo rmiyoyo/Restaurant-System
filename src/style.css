@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #778899;
+  background-color: #789;
 }
 
 .card-footer {
@@ -21,19 +21,19 @@ body {
 }
 
 .navbar-nav .nav-link.active {
-  color: #FFD700;
+  color: #ffd700;
 }
 
 .navbar-nav .nav-link {
-  color: #FFD700;
+  color: #ffd700;
 }
 
 footer {
   font-size: larger;
   font-weight: bolder;
-  font-style: normal; 
+  font-style: normal;
   color: #ffd700;
-  background-color: #778899;
+  background-color: #789;
   padding: 10px;
   position: fixed;
   left: 0;
