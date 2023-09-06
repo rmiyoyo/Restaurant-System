@@ -1,145 +1,398 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
-
-html {
-  font-size: 16px;
+* {
+  font-family: 'Playfair Display', serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-  background-color: #f4f4f4;
-  box-sizing: border-box;
+  background-color: #ffe4b5;
 }
 
-* {
+.container {
+  background-color: #fff;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  color: #3d3d3d;
 }
 
-#logo {
-  height: 40px;
-}
-
-menu {
-  display: flex;
-  gap: 16px;
-}
-
-menu *:hover {
-  transform: scale(1.1);
-}
-
-a {
+.nav-link {
+  margin-right: 20px;
   text-decoration: none;
-  color: inherit;
+  color: #333;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav-link.active {
+  font-weight: bold;
 }
 
-main,
-header,
-footer {
-  margin: 0 auto;
+.container-fluid {
+  position: relative;
+  transition: top 0.3s ease;
+}
+
+.container-fluid.fixed {
+  position: fixed;
+  top: 0;
   width: 100%;
+  background-color: #fff;
+  z-index: 1000;
 }
 
-header {
-  padding: 12px 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 32px;
+.meals-num {
+  padding: 5px 10px;
+  border-radius: 5px;
+  animation: blink 1s infinite alternate;
+
+  /* Use the "blink" animation */
+}
+
+@keyframes blink {
+  0% {
+    background-color: #ffd700;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.meals-num:hover {
+  animation: none;
+  background-color: #dc143c;
+  color: #fff;
+}
+
+.scn-scn {
+  display: flex;
+  flex-direction: column;
+}
+
+.ncs-ncs {
+  display: flex;
+  flex-direction: row;
+}
+
+ul {
+  list-style: none;
+}
+
+button:hover,
+.heart:hover {
+  cursor: pointer;
 }
 
 footer {
-  font-size: 1.1rem;
+  font-size: larger;
   font-weight: bolder;
-  color: #fff;
+  font-style: normal;
+  color: #ffd700;
   background-color: #789;
   padding: 10px;
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
-}
-
-menu *.active::after {
-  content: "";
-  border-bottom: 1px solid #333;
-  display: block;
-  width: 30px;
-  margin: 0 auto;
-  margin-top: 4px;
-}
-
-main {
-  position: relative;
-}
-
-#popup {
-  position: absolute;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 24px;
-  border: 1px solid #333;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  max-width: 800px;
-  min-width: 375px;
-  z-index: 99;
-}
-
-.popup-img {
-  height: 300px;
-  padding: 0 24px;
-}
-
-#close {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-}
-
-.ship-properties {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 375px;
-}
-
-.comments {
   width: 100%;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+@media only screen and (min-width: 320px) {
+  header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    position: fixed;
+  }
+
+  ul {
+    width: 65%;
+    column-gap: 5%;
+  }
+
+  ul li:nth-child(1) {
+    text-decoration: underline;
+    color: #ffffed;
+  }
+
+  ul li a {
+    color: #2beb83;
+    text-decoration: none;
+  }
+
+  section.menu {
+    width: 100%;
+    padding-top: 60px;
+    gap: 10px;
+  }
+
+  .food-card {
+    width: 80%;
+    justify-content: center;
+    margin: 0 5%;
+    row-gap: 30px;
+  }
+
+  .image-box {
+    width: 100%;
+  }
+
+  .image-box img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .image-box img:hover {
+    width: 103%;
+    border-radius: 15px;
+  }
+
+  .ppup-area {
+    margin-top: -30px;
+    justify-content: space-between;
+  }
+
+  .ppup-area h2 {
+    font-size: 1.2rem;
+    width: 67%;
+  }
+
+  .ppup-area span {
+    margin-top: 10%;
+    font-size: 1.1rem;
+    color: #483d8b;
+  }
+
+  .press-feature {
+    justify-content: space-between;
+    margin-top: -20px;
+  }
+
+  button {
+    width: 30%;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #008b8b;
+  }
+
+  .opinion-header {
+    color: #b22222;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: none;
+  }
+
+  .card-enclose {
+    width: 95%;
+    max-width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    z-index: 11;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    max-height: 80%;
+  }
+
+  i.minimize-card:hover {
+    cursor: pointer;
+  }
+
+  .card-enclose h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+
+  h2.enter-opinion {
+    margin-top: 30px;
+  }
+
+  .popup-window i {
+    margin: 15px 10% 15px 90%;
+  }
+
+  .food-drn {
+    width: 100%;
+    align-items: center;
+  }
+
+  .expand-box {
+    width: 90%;
+    align-items: center;
+  }
+
+  img.expand-photo {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  h2.expand-id {
+    margin-top: 10px;
+  }
+
+  .food-dscrptn {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .food-dscrptn span {
+    font-weight: bolder;
+  }
+
+  .recipeArea {
+    grid-column: 1 / span 2;
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+  .opinion-area {
+    display: flex;
+    margin-top: 30px;
+    width: 90%;
+    justify-content: center;
+    margin-left: 5%;
+  }
+
+  .opinion-scn p {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .add-opinion {
+    width: 100%;
+    align-items: center;
+  }
+
+  form.enter-opinion {
+    width: 90%;
+    row-gap: 5px;
+  }
+
+  input.user-name {
+    height: 25px;
+  }
+
+  textarea.insights {
+    height: 60px;
+  }
+
+  input.user-name:focus,
+  textarea.insights:focus {
+    outline-color: #00ff7f;
+    padding: 3%;
+  }
+
+  ::placeholder {
+    padding-left: 2%;
+  }
 }
 
-input,
-textarea {
-  padding: 8px;
-  width: 350px;
-  min-height: 40px;
+@media only screen and (min-width: 375px) {
+  header ul {
+    width: 100%;
+    column-gap: 5%;
+    margin-left: 15%;
+  }
+
+  .ppup-area h2 {
+    width: 70%;
+  }
 }
 
-#submit-comment {
-  align-self: last baseline;
-  background: transparent;
-  padding: 4px;
-  border: 1px solid #333b;
+@media only screen and (min-width: 425px) {
+  header ul {
+    width: 100%;
+    column-gap: 5%;
+    margin-left: 18%;
+  }
+
+  section.menu {
+    padding-top: 80px;
+  }
+
+  .ppup-area h2 {
+    width: 75%;
+  }
+
+  button {
+    width: 20%;
+  }
 }
 
-.displayNone {
-  display: none;
+@media only screen and (min-width: 768px) {
+  .logo {
+    width: 90%;
+  }
+
+  header ul {
+    width: 100%;
+    column-gap: 5%;
+    margin-left: 40%;
+  }
+
+  section.menu {
+    width: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-columns: auto auto;
+  }
+
+  button {
+    width: 25%;
+  }
+
+  button.your-opionion {
+    width: 30%;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px solid #008b8b;
+  }
+
+  .menu .heart {
+    font-size: larger;
+    position: relative;
+    top: 78%;
+    left: 10px;
+  }
+
+  .menu .comment {
+    position: relative;
+    top: -40px;
+  }
 }

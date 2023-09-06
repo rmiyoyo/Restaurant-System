@@ -1,32 +1,21 @@
 const path = require('path');
-const HtmlwebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    bundle: path.resolve(__dirname, 'src/index.js'),
-  },
-  output: {
-    filename: '[name][contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
+  entry: './src/index.js',
+  devServer: {
+    static: './dist',
   },
   plugins: [
-    new HtmlwebpackPlugin({
-      title: 'Capstone',
-      template: 'src/index.html',
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
     }),
   ],
-  devtool: 'source-map',
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'dist'),
-    },
-    port: 3000,
-    open: true,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   module: {
     rules: [
@@ -35,32 +24,14 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-        type: 'asset/resource',
-      },
-      {
         test: /\.html$/i,
-        loader: 'html-loader',
-        options: {
-          sources: {
-            list: [
-              {
-                tag: 'img',
-                attribute: 'src',
-                type: 'src',
-              },
-            ],
-          },
+        use: 'html-loader',
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name]-[hash][ext]',
         },
       },
     ],
