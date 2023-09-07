@@ -4,15 +4,15 @@ import {
   fetchFoodInfo, enterMeals, fetchInfo, showInfo,
 } from './module/mealDetails.js';
 
-import {showPopup, togglePopup} from './module/popup.js';
+import { showPopup, togglePopup } from './module/popup.js';
 
 const foodDescr = await fetchFoodInfo();
 const metricsInfo = await fetchInfo();
 
-  enterMeals(foodDescr);
-  foodDescr.forEach((element) => {
-    showInfo(metricsInfo, `M${element.idMeal}`);
-  });
+enterMeals(foodDescr);
+foodDescr.forEach((element) => {
+  showInfo(metricsInfo, `M${element.idMeal}`);
+});
 
 const comment = [...document.querySelectorAll('.comment')];
 const popWindow = document.getElementById('my-popup-window');
@@ -23,6 +23,5 @@ document.addEventListener('click', (e) => {
     const { strMealThumb, strMeal } = foodDescr[comment.indexOf(target)];
     popWindow.innerHTML = showPopup(strMealThumb, strMeal);
     togglePopup();
-  } else if(target.matches('#close'))
-    togglePopup();
+  } else if (target.matches('#close')) togglePopup();
 });
