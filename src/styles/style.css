@@ -389,6 +389,11 @@ footer {
     position: relative;
     top: 78%;
     left: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .menu .heart:hover {
+    transform: scale(1.2);
   }
 
   .menu .comment {
