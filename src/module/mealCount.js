@@ -1,4 +1,3 @@
-// mealCount.js
 export const mealsnumber = async () => {
   const request = new Request('https://themealdb.com/api/json/v1/1/search.php?f=c');
   const response = await fetch(request);
