@@ -4,7 +4,7 @@ import './styles/mystyle.css';
 import fetchFoodInfo from './module/foodApi.js';
 import enterMeals from './module/foodCards.js';
 import { oneLike, fetchInfo, showInfo } from './module/like.js';
-import { mealsnumber, showMeals } from './module/mealCount';
+import { mealsnumber, showMeals } from './module/mealCount.js';
 import { showPopup, togglePopup } from './module/popup.js';
 
 const foodDescr = await fetchFoodInfo();
