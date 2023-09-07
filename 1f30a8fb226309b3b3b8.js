@@ -57,7 +57,7 @@ const viewComments = async () => {
       result.forEach((item) => {
         const p = document.createElement('p');
         const { comment, username } = item;
-        p.textContent = `${item.creation_date} ${username} ${comment}`;
+        p.textContent = `${item.creation_date} ${username}: ${comment}`;
         fragment.appendChild(p);
       });
       commentsP.appendChild(fragment);
