@@ -1,3 +1,71 @@
+#popup {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+#close {
+  position: absolute;
+  right: 32px;
+  top: 24px;
+}
+
+.popup-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 40px;
+}
+
+.sec {
+  width: 50%;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  #popup {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .popup-img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sec {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+}
+
+.bt {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 .hidden {
   display: none;
 }
