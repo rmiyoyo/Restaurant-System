@@ -1,15 +1,17 @@
 import './styles/style.css';
 import './styles/mystyle.css';
-import {
-  fetchFoodInfo, enterMeals, oneLike, fetchInfo, showInfo,
-} from './module/mealDetails.js';
 
+import fetchFoodInfo from './module/foodApi.js';
+import enterMeals from './module/foodCards.js';
+import { oneLike, fetchInfo, showInfo } from './module/like.js';
+import { mealsnumber, showMeals } from './module/mealCount';
 import { showPopup, togglePopup } from './module/popup.js';
 
 const foodDescr = await fetchFoodInfo();
 const metricsInfo = await fetchInfo();
-
 enterMeals(foodDescr);
+const opinionsNo = await mealsnumber();
+showMeals(opinionsNo);
 foodDescr.forEach((element) => {
   showInfo(metricsInfo, `M${element.idMeal}`);
 });
@@ -27,6 +29,7 @@ mealArea.addEventListener('click', async (e) => {
     showInfo(metricsInfo, uniqueID);
   }
 });
+
 const popupWindow = document.querySelector('.popup-window');
 popupWindow.addEventListener('click', (e) => {
   if (e.target && e.target.matches('i.minimize-card')) {
