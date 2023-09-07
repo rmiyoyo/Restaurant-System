@@ -136,7 +136,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ \"./src/styles/style.css\");\n/* harmony import */ var _styles_mystyle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/mystyle.css */ \"./src/styles/mystyle.css\");\n/* harmony import */ var _module_foodApi_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/foodApi.js */ \"./src/module/foodApi.js\");\n/* harmony import */ var _module_foodCards_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/foodCards.js */ \"./src/module/foodCards.js\");\n/* harmony import */ var _module_like_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./module/like.js */ \"./src/module/like.js\");\n/* harmony import */ var _module_mealCount__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./module/mealCount */ \"./src/module/mealCount.js\");\n\n\n\n\n\n\n\n\nconst foodDescr = await (0,_module_foodApi_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nconst metricsInfo = await (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.fetchInfo)();\n(0,_module_foodCards_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(foodDescr);\nconst opinionsNo = await (0,_module_mealCount__WEBPACK_IMPORTED_MODULE_5__.mealsnumber)();\n(0,_module_mealCount__WEBPACK_IMPORTED_MODULE_5__.showMeals)(opinionsNo);\nfoodDescr.forEach((element) => {\n  (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.showInfo)(metricsInfo, `M${element.idMeal}`);\n});\n\nconst mealArea = document.querySelector('.menu');\nmealArea.addEventListener('click', async (e) => {\n  e.preventDefault();\n  if (e.target && e.target.matches('i.heart')) {\n    const uniqueID = e.target.id;\n    await (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.oneLike)(uniqueID);\n    const metricsInfo = await (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.fetchInfo)();\n    (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.showInfo)(metricsInfo, uniqueID);\n  }\n});\n\nconst popupWindow = document.querySelector('.popup-window');\npopupWindow.addEventListener('click', (e) => {\n  if (e.target && e.target.matches('i.minimize-card')) {\n    popupWindow.innerHTML = '';\n  }\n});\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://Cooking_Masters/./src/index.js?");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ \"./src/styles/style.css\");\n/* harmony import */ var _styles_mystyle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/mystyle.css */ \"./src/styles/mystyle.css\");\n/* harmony import */ var _module_foodApi_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/foodApi.js */ \"./src/module/foodApi.js\");\n/* harmony import */ var _module_foodCards_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/foodCards.js */ \"./src/module/foodCards.js\");\n/* harmony import */ var _module_like_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./module/like.js */ \"./src/module/like.js\");\n/* harmony import */ var _module_mealCount__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./module/mealCount */ \"./src/module/mealCount.js\");\n/* harmony import */ var _module_popup_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./module/popup.js */ \"./src/module/popup.js\");\n\n\n\n\n\n\n\n\n\nconst foodDescr = await (0,_module_foodApi_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nconst metricsInfo = await (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.fetchInfo)();\n(0,_module_foodCards_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(foodDescr);\nconst opinionsNo = await (0,_module_mealCount__WEBPACK_IMPORTED_MODULE_5__.mealsnumber)();\n(0,_module_mealCount__WEBPACK_IMPORTED_MODULE_5__.showMeals)(opinionsNo);\nfoodDescr.forEach((element) => {\n  (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.showInfo)(metricsInfo, `M${element.idMeal}`);\n});\n\nconst comment = [...document.querySelectorAll('.comment')];\nconst popWindow = document.getElementById('my-popup-window');\n\nconst mealArea = document.querySelector('.menu');\nmealArea.addEventListener('click', async (e) => {\n  e.preventDefault();\n  if (e.target && e.target.matches('i.heart')) {\n    const uniqueID = e.target.id;\n    await (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.oneLike)(uniqueID);\n    const metricsInfo = await (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.fetchInfo)();\n    (0,_module_like_js__WEBPACK_IMPORTED_MODULE_4__.showInfo)(metricsInfo, uniqueID);\n  }\n});\n\nconst popupWindow = document.querySelector('.popup-window');\npopupWindow.addEventListener('click', (e) => {\n  if (e.target && e.target.matches('i.minimize-card')) {\n    popupWindow.innerHTML = '';\n  }\n});\n\ndocument.addEventListener('click', (e) => {\n  const { target } = e;\n  if (target.matches('.comment')) {\n    const { strMealThumb, strMeal } = foodDescr[comment.indexOf(target)];\n    popWindow.innerHTML = (0,_module_popup_js__WEBPACK_IMPORTED_MODULE_6__.showPopup)(strMealThumb, strMeal);\n    (0,_module_popup_js__WEBPACK_IMPORTED_MODULE_6__.togglePopup)();\n  } else if (target.matches('#close')) (0,_module_popup_js__WEBPACK_IMPORTED_MODULE_6__.togglePopup)();\n});\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://Cooking_Masters/./src/index.js?");
 
 /***/ }),
 
@@ -177,6 +177,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   mealsnumber: () => (/* binding */ mealsnumber),\n/* harmony export */   showMeals: () => (/* binding */ showMeals)\n/* harmony export */ });\n// mealCount.js\nconst mealsnumber = async () => {\n  const request = new Request('https://themealdb.com/api/json/v1/1/search.php?f=c');\n  const response = await fetch(request);\n  const data = await response.json();\n  return data.meals.length;\n};\n\nconst showMeals = (opinionsNo) => {\n  const li = document.querySelector('li.meals-num');\n  li.textContent = `Meals(${opinionsNo})`;\n};\n\n\n//# sourceURL=webpack://Cooking_Masters/./src/module/mealCount.js?");
+
+/***/ }),
+
+/***/ "./src/module/popup.js":
+/*!*****************************!*\
+  !*** ./src/module/popup.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   showPopup: () => (/* binding */ showPopup),\n/* harmony export */   togglePopup: () => (/* binding */ togglePopup)\n/* harmony export */ });\n/* harmony import */ var _assets_close_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/close.svg */ \"./src/assets/close.svg\");\n\n\nconst showPopup = (img, strMeal) => {\n  const popupContent = `\n<section id=\"popup\">\n<img id=\"close\" src=\"${_assets_close_svg__WEBPACK_IMPORTED_MODULE_0__}\" alt=\"spaceship\">\n<img class=\"popup-img\" src=\"${img}\" alt=\"spaceship\">\n<div class=\"sec\">\n  <h2 class=\"strMeal\">${strMeal}</h2>\n  <h3>Comments (2)</h3>\n  <article class=\"comments\">\n      <p>3/11/2021 Alex: I'd love to buy it!</p>\n      <p>03/12/2021 Mia: I love</p>\n  </article>\n  <h3>Add a comment</h3>\n  <form action=\"#\">\n      <input type=\"text\" required maxlength=\"50\" placeholder=\"Your name\">\n      <textarea type=\"text\" required maxlength=\"1024\" placeholder=\"Your insights\"></textarea>\n      <button class=\"bt\" id=\"submit-comment\" type=\"submit\">Comment</button>\n  </form>\n</div>\n</section>\n`;\n  return popupContent;\n};\n\nconst toggleHiddenList = [\n  document.querySelector('.menu'),\n  document.querySelector('header'),\n  document.getElementById('my-popup-window'),\n];\n\nconst togglePopup = () => {\n  toggleHiddenList.forEach((element) => {\n    element.classList.toggle('hidden');\n  });\n};\n\n\n\n//# sourceURL=webpack://Cooking_Masters/./src/module/popup.js?");
+
+/***/ }),
+
+/***/ "./src/assets/close.svg":
+/*!******************************!*\
+  !*** ./src/assets/close.svg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"assets/close-1ded1e99216871d2a3ae.svg\";\n\n//# sourceURL=webpack://Cooking_Masters/./src/assets/close.svg?");
 
 /***/ })
 
@@ -300,6 +320,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -314,6 +346,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
