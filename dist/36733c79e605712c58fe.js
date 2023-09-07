@@ -5,11 +5,6 @@ import {
 } from './module/mealDetails.js';
 
 import { showPopup, togglePopup } from './module/popup.js';
-import InvolvementApiClient from './module/comments';
-
-const appID = 'Dumxi1eMYngrm2dyTuZC';
-
-const commentApi = new InvolvementApiClient(appID,'#msg');  
 
 const foodDescr = await fetchFoodInfo();
 const metricsInfo = await fetchInfo();

@@ -14,8 +14,9 @@ const showPopup = (img, strMeal) => {
   </article>
   <h3>Add a comment</h3>
   <form action="#">
-      <input type="text" required maxlength="50" placeholder="Your name">
-      <textarea type="text" required maxlength="1024" placeholder="Your insights"></textarea>
+      <input id="user-name" type="text" required maxlength="50" placeholder="Your name">
+      <textarea id="user-comment" type="text" required maxlength="1024" placeholder="Your insights"></textarea>
+      <div id="msg" class="hidden><div>
       <button class="bt" id="submit-comment" type="submit">Comment</button>
   </form>
 </div>
