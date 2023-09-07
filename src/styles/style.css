@@ -396,3 +396,7 @@ footer {
     top: -40px;
   }
 }
+
+.hidden.menu {
+  display: none;
+}
