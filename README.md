@@ -16,7 +16,7 @@ Meals
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-  - [🚀 Video Presentation](#video-presentation)
+  - [📹 Video Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -81,7 +81,7 @@ Meals
 
 <!-- VIDEO PRESENTATION -->
 
-## 🚀 Video Presentation <a name="video-presentation"></a>
+## 📹 Video Presentation <a name="video-presentation"></a>
 
 - Coming Soon
 
