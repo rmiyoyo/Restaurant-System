@@ -34,14 +34,14 @@ Meals
 
 # 📖 Meals Project <a name="about-project"></a>
 
-**Restaurant Management System** displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external [Meals API service](https://microverse.notion.site/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3). 
+**Restaurant Management System** displays a number of recipes retrieved from the TheMealDB. A user can also leave likes and comments on a specific recipe. All data is preserved thanks to the external [Involvement API](https://microverse.notion.site/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3). 
 
 ## 🛠 Built With <a name="built-with"></a>
 - [x] HTML
 - [x] CSS
 - [x] ES6
 - [x] Webpack
-- [x] External API
+- [x] External APIs ([TheMealDB](https://www.themealdb.com/api.php) and [Involvement API](https://microverse.notion.site/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3))
 - [x] Jest
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -53,18 +53,19 @@ Meals
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
     <li><a href="https://www.javascript.com/">ES6</a></li>
     <li><a href="https://webpack.js.org/">Webpack</a></li>
-    <li><a href="https://www.themealdb.com/api.php">Meals DB API</a></li>
+    <li><a href="https://www.themealdb.com/api.php">TheMealDB API</a></li>
   </ul>
 </details>
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **Preserves user input.**
-<!-- - **Removing a selected item.**
-- **Marking a selected item as complete.**
-- **Removing all items marked as complete at once.**
-- **Reordering a selected item (as drag-and-drop) [as an additional feature].** -->
+- Display all recipes from the TheMealDB API.
+- Show the number of recipes in the website.
+- Like a recipe.
+- Show the number of likes on a recipe.
+- Leave user comments on a recipe.
+- Display the number of recipes.
 
 <!-- ![Screenshot](./images/Screenshot%202.png) -->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -72,8 +73,8 @@ Meals
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- Coming Soon
-<!-- - [Check out the live demo](https://rmiyoyo.github.io/Leaderboard/dist/) -->
+
+- [Live Demo](https://rmiyoyo.github.io/Restaurant-System/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,18 +108,15 @@ Install the prerequisites this project using:
 
 ```sh
 cd Restaurant-System
-npm init -y
-npm install --save-dev hint@7.x
-npm install --save-dev stylelint@13.x stylelint-scss@3.xstylelint-config-standard@21.x stylelint-csstree-validator@1.x
+```
+```bash
+npm start
 ```
 
 ### Usage
 
 To run the project:
 
-```bash
-npm start
-```
 ```bash
 npm install
 ```
