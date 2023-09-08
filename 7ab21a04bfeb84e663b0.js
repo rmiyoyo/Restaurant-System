@@ -6,7 +6,7 @@ import enterMeals from './module/foodCards.js';
 import { oneLike, fetchInfo, showInfo } from './module/like.js';
 import { mealsnumber, showMeals } from './module/mealCount.js';
 import { showPopup, togglePopup } from './module/popup.js';
-import InvolvementApiClient from './module/comments.js';
+import { InvolvementApiClient, extractEntries } from './module/comments.js';
 
 const foodDescr = await fetchFoodInfo();
 const metricsInfo = await fetchInfo();
@@ -37,8 +37,7 @@ popupWindow.addEventListener('click', (e) => {
 
 const comment = [...document.querySelectorAll('.comment')];
 const popWindow = document.getElementById('my-popup-window');
-const appID = 'R35CzyDIJMb5HV6XSpZu';
-const commentApi = new InvolvementApiClient(appID, '#msg');
+const commentApi = new InvolvementApiClient('#msg');
 let activeCardId = null;
 
 const viewComments = async () => {
@@ -48,19 +47,19 @@ const viewComments = async () => {
     cmn.innerHTML = '';
 
     const commentsP = document.getElementById('comments-pp');
-    while (commentsP.firstChild) {
-      commentsP.firstChild.remove();
-    }
+
     if (result) {
       cmn.innerHTML = `<h2>Comments (${result.length})</h>`;
-      const fragment = document.createDocumentFragment();
+      let commentpp = '';
       result.forEach((item) => {
-        const p = document.createElement('p');
         const { comment, username } = item;
-        p.textContent = `${item.creation_date} ${username}: ${comment}`;
-        fragment.appendChild(p);
+        commentpp += `<div class="usr-name">
+        <span>${item.creation_date} </span>
+        <h3>${username}</h3>
+        <p>${comment}</p>
+        </div>`;
       });
-      commentsP.appendChild(fragment);
+      commentsP.innerHTML = commentpp;
       document.getElementById('user-name').value = '';
       document.getElementById('user-comment').value = '';
     } else {
@@ -72,21 +71,37 @@ const viewComments = async () => {
 document.addEventListener('click', (e) => {
   const { target } = e;
   if (target.matches('.comment')) {
-    const { idMeal, strMealThumb, strMeal } = foodDescr[comment.indexOf(target)];
+    const data = foodDescr[comment.indexOf(target)];
+    const {
+      idMeal, strInstructions, strMealThumb, strMeal,
+    } = data;
     popWindow.innerHTML = showPopup(strMealThumb, strMeal);
     activeCardId = idMeal;
     togglePopup();
     viewComments();
+    const ingredients = extractEntries(data, 'strIngredient');
+    const measure = extractEntries(data, 'strMeasure');
+    const combinedArray = ingredients.map((element, index) => `${measure[index]} ${element}`);
+    let content = '';
+    combinedArray.forEach((item) => {
+      content += `<li>${item}</li>`;
+    });
+    document.getElementById('ingredients').innerHTML = content;
+    document.getElementById('instruction').innerText = strInstructions;
   } else if (target.matches('#close')) {
     togglePopup();
     activeCardId = null;
-  }
-
-  if (target.matches('#submit-comment')) {
+  } else if (target.matches('#submit-comment')) {
     e.preventDefault();
+    const msg = document.getElementById('msg');
+    msg.classList.remove('hidden');
+    msg.textContent = 'Posting...';
     const userName = document.getElementById('user-name').value;
     const userComment = document.getElementById('user-comment').value;
     commentApi.postComment(activeCardId, userName, userComment, '#msg');
-    viewComments();
+
+    setTimeout(() => {
+      viewComments();
+    }, 3000);
   }
 });
