@@ -66,4 +66,8 @@ class InvolvementApiClient {
   }
 }
 
-export default InvolvementApiClient;
+const extractEntries = (data, entryName) => Object.keys(data)
+  .filter((key) => key.startsWith(entryName) && data[key])
+  .map((key) => data[key]);
+
+export { InvolvementApiClient, extractEntries };
