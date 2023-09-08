@@ -16,6 +16,7 @@ Meals
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [🚀 Video Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -75,6 +76,14 @@ Meals
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo](https://rmiyoyo.github.io/Restaurant-System/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- VIDEO PRESENTATION -->
+
+## 🚀 Video Presentation <a name="video-presentation"></a>
+
+- Coming Soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
