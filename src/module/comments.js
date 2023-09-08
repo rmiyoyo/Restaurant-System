@@ -6,12 +6,13 @@ class InvolvementApiClient {
 
   async postComment(id, username, comment, successMsgSelector) {
     const url = `${this.url}?item_id=${id}`;
+    let success = false;
     const postData = {
       item_id: id,
       username,
       comment,
     };
-    const successElement = document.querySelector(successMsgSelector);
+    let message = '';
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -20,20 +21,27 @@ class InvolvementApiClient {
         },
         body: JSON.stringify(postData),
       });
-      successElement.classList.remove('hidden');
       if (response.status === 201) {
-        successElement.textContent = 'Comment posted successfully!';
+        message = 'Comment posted successfully!';
+        success = true;
       } else if (!response.ok) {
-        successElement.textContent = `Error: ${response.status} ${response.statusText}`;
+        message = `Error: ${response.status} ${response.statusText}`;
       }
     } catch (networkError) {
-      successElement.classList.remove('hidden');
-      successElement.textContent = 'There was a network problem:';
+      message = 'There was a network problem:';
     }
 
-    setTimeout(() => {
-      successElement.classList.add('hidden');
-    }, 5000);
+    const successElement = document.querySelector(successMsgSelector);
+
+    if (successElement) {
+      successElement.textContent = message;
+      successElement.classList.remove('hidden');
+      setTimeout(() => {
+        successElement.classList.add('hidden');
+      }, 5000);
+    }
+
+    return success;
   }
 
   async fetchComments(itemId, successMsgSelector) {
