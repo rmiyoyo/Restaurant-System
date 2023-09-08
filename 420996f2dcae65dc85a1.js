@@ -4,7 +4,7 @@ import './styles/mystyle.css';
 import fetchFoodInfo from './module/foodApi.js';
 import enterMeals from './module/foodCards.js';
 import { oneLike, fetchInfo, showInfo } from './module/like.js';
-import { mealsnumber, showMeals } from './module/mealCount';
+import { mealsnumber, showMeals } from './module/mealCount.js';
 import { showPopup, togglePopup } from './module/popup.js';
 import InvolvementApiClient from './module/comments.js';
 
@@ -63,7 +63,9 @@ const viewComments = async () => {
       commentsP.appendChild(fragment);
       document.getElementById('user-name').value = '';
       document.getElementById('user-comment').value = '';
-    } else cmn.innerHTML = 'Drop first comment';
+    } else {
+      cmn.innerHTML = 'Drop first comment';
+    }
   })();
 };
 
