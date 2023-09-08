@@ -21,6 +21,7 @@
   max-width: 600px;
   height: auto;
   border-radius: 40px;
+  align-self: flex-start;
 }
 
 .sec {
@@ -33,6 +34,12 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-top: 0;
+  }
+
+  #close {
+    top: 12px;
+    right: 12px;
   }
 
   .popup-img {
@@ -64,6 +71,47 @@ textarea {
   margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+#ingredients {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#ingredients * {
+  list-style: square;
+  color: #414141;
+  text-decoration: none;
+  margin-right: 24px;
+}
+
+#comments-pp {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.usr-name {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.usr-name span {
+  color: #888;
+}
+
+.usr-name h3 {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #888;
+}
+
+.usr-name p {
+  font-size: 1em;
 }
 
 .hidden {
