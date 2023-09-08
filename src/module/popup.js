@@ -7,6 +7,8 @@ const showPopup = (img, strMeal) => {
 <img class="popup-img" src="${img}" alt="spaceship">
 <div class="sec">
   <h2 class="strMeal">${strMeal}</h2>
+  <h2 class="ingredients-title">ingredients</h2>
+  <ul id="ingredients"></ul>
   <div id="cmn"></div>
   <article id="comments-pp"></article>
   <h3>Add a comment</h3>

@@ -63,7 +63,9 @@ const viewComments = async () => {
       commentsP.appendChild(fragment);
       document.getElementById('user-name').value = '';
       document.getElementById('user-comment').value = '';
-    } else cmn.innerHTML = 'Drop first comment';
+    } else {
+      cmn.innerHTML = 'Drop first comment';
+    }
   })();
 };
 

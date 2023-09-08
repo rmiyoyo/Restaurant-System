@@ -1,18 +1,19 @@
 class InvolvementApiClient {
   constructor(statusElement) {
-    this.url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/R35CzyDIJMb5HV6XSpZu/comments';
+    this.url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vqYSKyH5yQaDwOFM69A0/comments';
     this.statusMsg = document.querySelector(statusElement);
   }
 
-  async postComment(itemId, username, comment, successMsgSelector) {
+  async postComment(id, username, comment, successMsgSelector) {
+    const url = `${this.url}?item_id=${id}`;
     const postData = {
-      itemId,
+      item_id: id,
       username,
       comment,
     };
     const successElement = document.querySelector(successMsgSelector);
     try {
-      const response = await fetch(this.url, {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
