@@ -83,7 +83,7 @@ Meals
 
 ## 📹 Video Presentation <a name="video-presentation"></a>
 
-- Coming Soon
+- [Video Presentation](https://drive.google.com/file/d/1GLGXQFNTHjPoIUBMbBX0e0LPXIo6jzvr/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
